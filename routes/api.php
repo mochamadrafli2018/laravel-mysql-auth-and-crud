@@ -18,10 +18,10 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::get('/user/all', [UserDataController::class,'getAllUser']);
 // Get user data data by id
 Route::get('/user/{id}', [UserDataController::class,'findById']);
-// Edit User Data (Admin and User)
-Route::put('/user/{id}','UserDataController@editUserData');
-// Delete User Data (Admin Only)
-Route::delete('/user/{id}','UserDataController@deleteUserData');
+// Edit user Data by id
+Route::put('/user/{id}', [UserDataController::class, 'editUserById']);
+// Delete User Data
+Route::delete('/user/{id}',[UserDataController::class, 'deleteUserById']);
 
 // Get All Data
 Route::get('/data','api\DataController@getAll');
